@@ -1,0 +1,6 @@
+{
+      name    = "prometheus-use1-dev"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-7f7a470b92-39421355.us-east-2.elb.amazonaws.com"]
+    }
+
