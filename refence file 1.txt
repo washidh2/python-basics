@@ -1,0 +1,1061 @@
+module "statsperform_technology" {
+  source      = "git@github.com:performgroup/pe-tf-module-dns?ref=1.9.0"
+  name        = "statsperform.technology"
+  default_ttl = local.default_ttl
+
+  records = [
+    {
+      name = ""
+      type = "TXT"
+      records = [
+        "MS=ms74690872",                                  # SSL
+        "v=spf1 include:spf.protection.outlook.com -all", # Mail
+        "atlassian-domain-verification=/WBRStTfh3tk/R8PaMtRHVpTzbIoJDD1vTbvl5AgDXfbqkZynaxDi3ClBohWgWZU",
+        "logmein-domain-confirmation=FT1Y5LfpuvIUTvT82hPi",
+        "onetrust-domain-verification=c7421ea92f7e4e36ad1d18146f60673c",
+      ]
+    },
+    {
+      name = "test-spf3"
+      type = "TXT"
+      records = [
+        "v=spf1 ip4:204.114.11.55 ip4:12.168.134.0/24 include:spf.protection.outlook.com include:amazonses.com include:_spf.psm.knowbe4.com include:spf.clicktools.com\"\" include:rp.oracleemaildelivery.com include:ap.rp.oracleemaildelivery.com include:eu.rp.oracleemaildelivery.com ~all",
+      ]
+    },
+    # Mail
+    {
+      name    = ""
+      type    = "MX"
+      records = ["0 statsperform-technology.mail.protection.outlook.com"]
+    },
+    {
+      name    = "autodiscover"
+      type    = "CNAME"
+      records = ["autodiscover.outlook.com"]
+    },
+    {
+      name    = "gVNYBmcW4YVaxhyLL5PfxnnlPaLUCNKD._domainkey"
+      type    = "CNAME"
+      records = ["gVNYBmcW4YVaxhyLL5PfxnnlPaLUCNKD.statsperform.technology.dkim.ord1.oracleemaildelivery.com"]
+    },
+    # OpenVPN Solution
+    {
+      name    = "partners.vpn"
+      type    = "A"
+      records = ["194.76.59.25"]
+    },
+    {
+      name    = "in.vpn" # India
+      type    = "A"
+      records = ["140.238.252.112"]
+    },
+    # LDAP
+    {
+      name    = "ldap-ixp"
+      type    = "A"
+      records = ["10.12.23.199"]
+    },
+    {
+      name    = "ldap"
+      type    = "CNAME"
+      records = ["ldap-ixp.@"]
+    },
+    {
+      name    = "checkmk"
+      type    = "A"
+      records = ["10.12.23.111"]
+    },
+    {
+      name    = "pmm-ixs"
+      type    = "A"
+      records = ["10.24.23.19"]
+    },
+    {
+      name    = "pmm-ixp"
+      type    = "A"
+      records = ["10.12.23.106"]
+    },
+    {
+      name    = "pmm-eqp"
+      type    = "A"
+      records = ["10.122.23.106"]
+    },
+    {
+      name    = "kibana-prod"
+      type    = "CNAME"
+      records = ["dmz1szr3hg488.cloudfront.net"]
+    },
+    {
+      name    = "smokeping-aws"
+      type    = "CNAME"
+      records = ["smokeping-external-prod-575347674.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "smokeping-ixp"
+      type    = "A"
+      records = ["10.12.23.220"]
+    },
+    {
+      name    = "smokeping-ixs"
+      type    = "A"
+      records = ["10.24.23.220"]
+    },
+    {
+      name    = "eqpedge01"
+      type    = "A"
+      records = ["194.76.104.31"]
+    },
+    {
+      name    = "eqpedge01.edge"
+      type    = "A"
+      records = ["194.76.104.31"]
+    },
+    {
+      name    = "eqpedge02"
+      type    = "A"
+      records = ["194.76.104.32"]
+    },
+    {
+      name    = "eqpedge02.edge"
+      type    = "A"
+      records = ["194.76.104.32"]
+    },
+    {
+      name    = "inxedge01"
+      type    = "A"
+      records = ["194.76.59.20"]
+    },
+    {
+      name    = "inxedge01.edge"
+      type    = "A"
+      records = ["194.76.59.20"]
+    },
+    {
+      name    = "inxedge02"
+      type    = "A"
+      records = ["194.76.59.21"]
+    },
+    {
+      name    = "inxedge02.edge"
+      type    = "A"
+      records = ["194.76.59.21"]
+    },
+    {
+      name    = "inxedge03"
+      type    = "A"
+      records = ["194.76.59.22"]
+    },
+    {
+      name    = "inxedge03.edge"
+      type    = "A"
+      records = ["194.76.59.22"]
+    },
+    {
+      name    = "inxedge04"
+      type    = "A"
+      records = ["194.76.59.23"]
+    },
+    {
+      name    = "chgedge01"
+      type    = "A"
+      records = ["40.137.149.89"]
+    },
+    {
+      name    = "chgedge02"
+      type    = "A"
+      records = ["40.137.149.90"]
+    },
+    {
+      name    = "lmkedge01"
+      type    = "A"
+      records = ["212.2.191.100"]
+    },
+    {
+      name    = "lmkedge02"
+      type    = "A"
+      records = ["212.2.191.101"]
+    },
+    {
+      name    = "sfmwedge01"
+      type    = "A"
+      records = ["62.172.35.165"]
+    },
+    {
+      name    = "sfmwedge02"
+      type    = "A"
+      records = ["195.11.225.115"]
+    },
+    {
+      name    = "gb1cgldmwedge01"
+      type    = "A"
+      records = ["65.151.144.72"]
+    },
+    {
+      name    = "gb3cgldmwedge01"
+      type    = "A"
+      records = ["65.151.148.66"]
+    },
+    {
+      name    = "avesftp"
+      type    = "A"
+      records = ["195.23.64.249"]
+    },
+    {
+      name    = "eu-vpn1"
+      type    = "A"
+      ttl     = "300"
+      records = ["194.76.59.225"]
+    },
+    {
+      name    = "ra-b"
+      type    = "A"
+      ttl     = "300"
+      records = ["194.76.59.225"]
+    },
+    {
+      name    = "ra-u"
+      type    = "A"
+      ttl     = 300
+      records = ["164.152.105.244"]
+    },
+    {
+      name    = "us-vpn1"
+      type    = "A"
+      ttl     = "300"
+      records = ["12.168.134.232"]
+    },
+    {
+      name    = "ra"
+      type    = "A"
+      ttl     = "300"
+      records = ["194.76.104.225"]
+    },
+    {
+      name    = "syspass"
+      type    = "CNAME"
+      records = ["be-syspass.prod.xregion.statsperform.cloud"]
+    },
+    {
+      name    = "syspass-stage"
+      type    = "A"
+      records = ["10.22.105.99"]
+    },
+    {
+      name    = "rugbysftp"
+      type    = "A"
+      records = ["3.8.219.123"]
+    },
+    {
+      name    = "pingdom"
+      type    = "CNAME"
+      records = ["stats.pingdom.com"]
+    },
+    {
+      name    = "smokeping-pf-aws"
+      type    = "CNAME"
+      records = ["smokeping-external-prod-262528154.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "encnagios-ixp"
+      type    = "A"
+      records = ["10.11.203.244"]
+    },
+    {
+      id      = "atlantis_A"
+      name    = "atlantis"
+      type    = "CNAME"
+      ttl     = 60
+      records = ["${local.atlantis_active_region}-atlantis-prod.statsperform.technology"]
+    },
+    {
+      id      = "atlantis-int_CNAME"
+      name    = "atlantis-int"
+      type    = "CNAME"
+      ttl     = 60
+      records = ["${local.atlantis_active_region}-atlantis-int-prod.statsperform.technology"]
+    },
+    {
+      name    = "matomo"
+      type    = "A"
+      records = ["194.76.59.75"]
+    },
+    {
+      name    = "user-proxy"
+      type    = "A"
+      records = ["10.12.21.20"]
+    },
+    {
+      name    = "ctrac12-cluster"
+      type    = "A"
+      records = ["10.20.32.92", "10.20.32.93", "10.20.32.94"]
+    },
+    {
+      name    = "vctestracs-cluster"
+      type    = "A"
+      records = ["10.20.32.92", "10.20.32.93", "10.20.32.94"]
+    },
+    {
+      name    = "cstage-cluster"
+      type    = "A"
+      records = ["10.20.32.75", "10.20.32.76", "10.20.32.77"]
+    },
+    {
+      name    = "ostage-cluster"
+      type    = "A"
+      records = ["172.27.129.18", "172.27.129.251", "172.27.129.86"]
+    },
+    {
+      name    = "cnlnpovm-cluster"
+      type    = "A"
+      records = ["10.20.32.75", "10.20.32.76", "10.20.32.77"]
+    },
+    {
+      name = "exadata2-cluster"
+      type = "A"
+      records = [
+        "172.27.128.73",
+        "172.27.128.220",
+        "172.27.128.51",
+      ]
+      ttl = 5 # @TODO: revert after migration is over
+    },
+    {
+      name = "oexadata2-cluster"
+      type = "A"
+      records = [
+        "172.27.128.73",
+        "172.27.128.220",
+        "172.27.128.51",
+      ]
+      ttl = 5 # @TODO: revert after migration is over
+    },
+    {
+      name    = "powerbidb"
+      type    = "CNAME"
+      ttl     = "300"
+      records = ["powerbi01.cluster-ctdwgzyn5zia.eu-west-1.rds.amazonaws.com"]
+    },
+    {
+      name    = "euw1-atlantis-prod"
+      type    = "CNAME"
+      records = ["k8s-atlantis-atlantis-7b64b5e86e-1703274553.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "euw2-atlantis-prod"
+      type    = "CNAME"
+      records = ["k8s-atlantis-atlantis-e1ec3aec08-1653688656.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "euw1-atlantis-int-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-atlantis-atlantis-3eab25d5ed-1884886867.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "euw2-atlantis-int-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-atlantis-atlantis-ccc8614ccc-527867200.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-euw1-dev"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-8f56ad9de0-57773751.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-use1-dev"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-7f7a470b92-39421355.us-east-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-use2-dev"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-d1c782285f-502563256.us-east-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-euw1-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-1e0c73ef2e-577335332.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-use1-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-b5fa9d43b5-1304276011.us-east-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-use2-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-8a88b8509f-530640521.us-east-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "prometheus-apse2-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-0dc3b65ead-1449654655.ap-southeast-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "grafana-euw1-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-1e0c73ef2e-577335332.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "grafana-euw2-prod"
+      type    = "CNAME"
+      records = ["internal-k8s-monitori-monitori-1aba61c091-1275205082.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "sftp-us"
+      type    = "A"
+      records = ["204.114.11.100"]
+    },
+    {
+      name    = "mwcorestb-aws"
+      type    = "CNAME"
+      records = ["video-mwcore-lb-ext-prod-2126234938.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "primaryingest01"
+      type    = "CNAME"
+      records = ["inxedge01.@"]
+      ttl     = "300"
+    },
+    {
+      name    = "primaryingest02"
+      type    = "CNAME"
+      records = ["inxedge02.@"]
+      ttl     = "300"
+    },
+    {
+      name    = "primaryingest03"
+      type    = "CNAME"
+      records = ["inxedge03.@"]
+      ttl     = "300"
+    },
+    {
+      name    = "secondaryingest01"
+      type    = "CNAME"
+      records = ["eqpedge01.@"]
+      ttl     = "300"
+    },
+    {
+      name    = "secondaryingest02"
+      type    = "CNAME"
+      records = ["eqpedge02.@"]
+      ttl     = "300"
+    },
+    {
+      name    = "mwcorestb-lmk"
+      type    = "A"
+      records = ["10.217.161.89"]
+    },
+    {
+      name    = "mwcorestb-ave"
+      type    = "A"
+      records = ["10.217.82.80"]
+    },
+    {
+      name    = "mwcoremcast-ave.statsperform.technology"
+      type    = "A"
+      ttl     = 300
+      records = ["10.217.93.254"]
+    },
+    {
+      name    = "mwcoremcast-lmk.statsperform.technology"
+      type    = "A"
+      ttl     = 300
+      records = ["10.217.160.241"]
+    },
+    {
+      name    = "qlikview01"
+      type    = "A"
+      records = ["10.134.49.41"]
+    },
+    {
+      name    = "qlikview02"
+      type    = "A"
+      records = ["10.134.50.14"]
+    },
+    {
+      name    = "id3ascloud-euw1-a-stage"
+      type    = "CNAME"
+      records = ["video-id3as-lb-stage-2145235536.eu-west-1.elb.amazonaws.com"]
+    },
+    {
+      name    = "id3ascloud-euw2-a-stage"
+      type    = "CNAME"
+      records = ["video-id3as-lb-stage-408673850.eu-west-2.elb.amazonaws.com"]
+    },
+    {
+      name    = "eqpedge03"
+      type    = "A"
+      records = ["194.76.104.33"]
+    },
+    {
+      name    = "eqpedge03.edge"
+      type    = "A"
+      records = ["194.76.104.33"]
+    },
+    {
+      name    = "secondaryingest03"
+      type    = "CNAME"
+      records = ["eqpedge03.statsperform.technology"]
+    },
+    {
+      name    = "id3as-ix"
+      type    = "A"
+      records = ["194.76.59.45"]
+    },
+    {
+      name    = "id3as-eq"
+      type    = "A"
+      records = ["194.76.105.45"]
+    },
+    {
+      name    = "id3as-dev"
+      type    = "A"
+      records = ["10.23.203.101"]
+    },
+    {
+      name    = "id3as-stage"
+      type    = "A"
+      records = ["10.120.226.18"]
+    },
+    {
+      name    = "mysqlproxy"
+      type    = "A"
+      records = ["18.135.199.189"]
+    },
+    {
+      name    = "optavoice-tool"
+      type    = "A"
+      records = ["10.11.203.245"]
+    },
+    {
+      name    = "norsk-llhls-dev"
+      type    = "A"
+      records = ["176.58.125.115"]
+    },
+    {
+      name    = "securden"
+      type    = "A"
+      records = ["10.9.105.100"]
+    },
+    {
+      name    = "securden-pam"
+      type    = "A"
+      records = ["10.9.105.101"]
+    },
+    {
+      name    = "securden-pam-ext"
+      type    = "A"
+      records = ["194.76.58.55"]
+    },
+    {
+      name    = "em7306"
+      type    = "CNAME"
+      records = ["u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "s1._domainkey"
+      type    = "CNAME"
+      records = ["s1.domainkey.u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "s2._domainkey"
+      type    = "CNAME"
+      records = ["s2.domainkey.u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "url1707"
+      type    = "CNAME"
+      records = ["sendgrid.net"]
+    },
+    {
+      name    = "35384128"
+      type    = "CNAME"
+      records = ["sendgrid.net"]
+    },
+    {
+      name    = "selector1._domainkey"
+      type    = "CNAME"
+      records = ["selector1-statsperform-technology._domainkey.statsllc.onmicrosoft.com"]
+    },
+    {
+      name    = "selector2._domainkey"
+      type    = "CNAME"
+      records = ["selector2-statsperform-technology._domainkey.statsllc.onmicrosoft.com"]
+    },
+    {
+      name = "_dmarc"
+      type = "TXT"
+      records = [
+        "v=DMARC1; p=none; rua=mailto:dmarcalerts@statsperform.technology ; ruf=mailto:dmarcalerts@statsperform.technology ; fo=1;",
+      ]
+    },
+    {
+      name    = "selector2._domainkey.monitoring"
+      type    = "CNAME"
+      records = ["selector2-monitoring-statsperform-technology._domainkey.statsllc.onmicrosoft.com"]
+    },
+    {
+      name    = "selector1._domainkey.monitoring"
+      type    = "CNAME"
+      records = ["selector1-monitoring-statsperform-technology._domainkey.statsllc.onmicrosoft.com"]
+    },
+    {
+      name    = "35384128.monitoring"
+      type    = "CNAME"
+      records = ["sendgrid.net"]
+    },
+    {
+      name    = "url8519.monitoring"
+      type    = "CNAME"
+      records = ["sendgrid.net"]
+    },
+    {
+      name    = "s2._domainkey.monitoring"
+      type    = "CNAME"
+      records = ["s2.domainkey.u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "s1._domainkey.monitoring"
+      type    = "CNAME"
+      records = ["s1.domainkey.u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "em2341.monitoring"
+      type    = "CNAME"
+      records = ["u35384128.wl129.sendgrid.net"]
+    },
+    {
+      name    = "autodiscover.monitoring"
+      type    = "CNAME"
+      records = ["autodiscover.outlook.com"]
+    },
+    {
+      name    = "monitoring"
+      type    = "MX"
+      records = ["0 monitoring-statsperform-technology.mail.protection.outlook.com"]
+    },
+    {
+      name = "monitoring"
+      type = "TXT"
+      records = [
+        "v=spf1 include:spf.protection.outlook.com -all",
+      ]
+    },
+    {
+      name = "_dmarc.monitoring"
+      type = "TXT"
+      records = [
+        "v=DMARC1; p=quarantine; rua=mailto:dmarcalerts@monitoring.statsperform.technology ; ruf=mailto:dmarcalerts@monitoring.statsperform.technology ; fo=1;",
+      ]
+    },
+    {
+      name    = "argocd-ixs"
+      type    = "A"
+      records = ["10.17.76.10"]
+    },
+    {
+      name    = "argocd-eqp"
+      type    = "A"
+      records = ["10.124.76.10"]
+    },
+    {
+      name    = "msa-docs"
+      type    = "CNAME"
+      records = ["statsperform.github.io"]
+    },
+  ]
+
+  aliases = [
+    {
+      name = "id3ascloud-euw1-a-prod"
+      type = "A"
+      alias = {
+        name                   = "video-id3as-lb-prod-1803967561.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "id3ascloud-euw2-a-prod"
+      type = "A"
+      alias = {
+        name                   = "video-id3as-lb-prod-1191038788.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-euw2-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-a7a2c44666-341415877.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-euw2-prod"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-1aba61c091-1275205082.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-euw1-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-66e1604fd2-2008483501.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    { 	 		
+      name = "prometheus-euw2-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-74046299ae-1611933828.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-use1-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-aaad8729d9-1160425369.us-east-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.use1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-use2-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-e7d864911c-847573943.us-east-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.use2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-apse2-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-89b705f532-2109754381.ap-southeast-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.apse2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "lstash-shipper-ssl-others-prod"
+      type = "A"
+      alias = {
+        name                   = "use2-lstash-ext-shipper-oth-prod-d46c170c3410bd4a.elb.us-east-2.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.use2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "lstash-shipper-internal-ssl-others-prod"
+      type = "A"
+      alias = {
+        name                   = "use2-lstash-int-shipper-oth-prod-cbfd1258e819d905.elb.us-east-2.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.use2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "dataminer-dev"
+      type = "A"
+
+      alias = {
+        name                   = "euw1-dataminer-lb-dev-de31a5582115c295.elb.eu-west-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.euw1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name            = "dataminer-stage"
+      type            = "A"
+      set_identifier  = "euw1"
+      health_check_id = data.terraform_remote_state.health_checks_stage.outputs.ids.dataminer_euw1
+
+      alias = {
+        name                   = "euw1-dataminer-lb-stage-6bf463e29fb28000.elb.eu-west-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.euw1
+        evaluate_target_health = true
+      }
+
+      failover_routing_policy = {
+        type = "PRIMARY"
+      }
+    },
+    {
+      name            = "dataminer-stage"
+      type            = "A"
+      set_identifier  = "euw2"
+      health_check_id = data.terraform_remote_state.health_checks_stage.outputs.ids.dataminer_euw2
+
+      alias = {
+        name                   = "euw2-dataminer-lb-stage-714a382611a53330.elb.eu-west-2.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.euw2
+        evaluate_target_health = true
+      }
+
+      failover_routing_policy = {
+        type = "SECONDARY"
+      }
+    },
+    {
+      name            = "dataminer"
+      type            = "A"
+      set_identifier  = "euw1"
+      health_check_id = data.terraform_remote_state.health_checks_prod.outputs.ids.dataminer_euw1
+
+      alias = {
+        name                   = "euw1-dataminer-lb-prod-c76a2a53061c395d.elb.eu-west-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.euw1
+        evaluate_target_health = false
+      }
+
+      weighted_routing_policy = {
+        weight = 50
+      }
+    },
+    {
+      name            = "dataminer"
+      type            = "A"
+      set_identifier  = "euw2"
+      health_check_id = data.terraform_remote_state.health_checks_prod.outputs.ids.dataminer_euw2
+
+      alias = {
+        name                   = "euw2-dataminer-lb-prod-a6d43e25b7802914.elb.eu-west-2.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.euw2
+        evaluate_target_health = false
+      }
+
+      weighted_routing_policy = {
+        weight = 50
+      }
+    },
+    {
+      name = "euw2-influxdb-exporter-dev"
+      type = "A"
+      alias = {
+        name                   = "k8s-monitori-monitori-869ba0b5bb-1925173943.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "grafana-euw1-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-66e1604fd2-2008483501.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "grafana-stage"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-66e1604fd2-2008483501.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "grafana-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-8f56ad9de0-57773751.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name           = "grafana-prod"
+      type           = "A"
+      set_identifier = "euw1"
+
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-1e0c73ef2e-577335332.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = true
+      }
+
+      failover_routing_policy = {
+        type = "PRIMARY"
+      }
+    },
+    {
+      name           = "grafana-prod"
+      type           = "A"
+      set_identifier = "euw2"
+
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-1aba61c091-1275205082.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw2
+        evaluate_target_health = true
+      }
+
+      failover_routing_policy = {
+        type = "SECONDARY"
+      }
+    },
+    {
+      name = "redpanda-de-msk-dev"
+      type = "A"
+
+      alias = {
+        name                   = "k8s-kubesyst-nginxing-35aed2ab47-893dea98c832115e.elb.us-east-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.use1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "redpanda-de-msk-test-dev"
+      type = "A"
+
+      alias = {
+        name                   = "k8s-kubesyst-nginxing-35aed2ab47-893dea98c832115e.elb.us-east-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.use1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "redpanda-de-msk-prod"
+      type = "A"
+
+      alias = {
+        name                   = "k8s-kubesyst-nginxing-d00a408c2c-b9da8ed294f6def7.elb.us-east-1.amazonaws.com"
+        zone_id                = module.r53_zone_ids.nlb.use1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "argocd"
+      type = "A"
+
+      alias = {
+        name                   = "k8s-argocd-argocdex-63b6066f63-309850033.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "argocd-int"
+      type = "A"
+
+      alias = {
+        name                   = "internal-k8s-argocd-argocdin-292297155f-827419128.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "rancher"
+      type = "A"
+
+      alias = {
+        name                   = "internal-k8s-cattlesy-rancher-4482435227-1376185483.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "grafana-euw1-dev"
+      type = "A"
+
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-8f56ad9de0-57773751.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "atlantis-int-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-atlantis-atlantis-b4483b4a8e-378609130.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "id3ascloud-euw1-a-dev"
+      type = "A"
+      alias = {
+        name                   = "video-id3as-lb-dev-70346607.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "prometheus-apse2-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-12e496d67d-337002732.ap-southeast-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "grafana-euw2-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-a7a2c44666-341415877.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "atlantis-dev"
+      type = "A"
+      alias = {
+        name                   = "k8s-atlantis-atlantis-213f73badc-509993528.eu-west-1.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "id3ascloud-euw2-a-dev"
+      type = "A"
+      alias = {
+        name                   = "video-id3as-lb-dev-13552283.eu-west-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+    {
+      name = "kibana-dev"
+      type = "A"
+      alias = {
+        name                   = "d2ncz38lbyxyqp.cloudfront.net"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = true
+      }
+    },
+    {
+      name = "prometheus-use2-dev"
+      type = "A"
+      alias = {
+        name                   = "internal-k8s-monitori-monitori-d1c782285f-502563256.us-east-2.elb.amazonaws.com"
+        zone_id                = module.r53_zone_ids.alb.euw1
+        evaluate_target_health = false
+      }
+    },
+  ]
+
+  multi_target = [
+    {
+      name = "cpp-front"
+      targets = [
+        { fqdn = "cpp-front.portals.ext.prod.ix.statsperform.cloud" },
+        { fqdn = "cpp-front.portals.ext.prod.eq.statsperform.cloud" },
+      ]
+    },
+  ]
+}
